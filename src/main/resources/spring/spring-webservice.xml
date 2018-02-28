@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:wss="http://jax-ws.dev.java.net/spring/servlet"
+       xmlns:ws="http://jax-ws.dev.java.net/spring/core" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		    http://jax-ws.dev.java.net/spring/servlet
+		     http://jax-ws.java.net/spring/servlet.xsd
+		      http://jax-ws.dev.java.net/spring/core
+		       http://jax-ws.dev.java.net/spring/core.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 注解扫描 -->
+    <context:component-scan base-package="org.ihsusta.server.webservice"/>
+    <!-- 发布出的webserice路径 -->
+    <wss:binding url="/services/WebServer">
+        <wss:service>
+            <!-- 与webservice实现类的bean name 要相同-->
+            <ws:service bean="#webServerImpl"/>
+        </wss:service>
+    </wss:binding>
+</beans>
